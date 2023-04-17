@@ -1,0 +1,12 @@
+#!/bin/bash
+#Create New User
+
+url=$(cat curipaddress)
+
+curl -k -b Ceph_Cookies -X POST $url/api/rgw/user -H "Accept: application/vnd.ceph.api.v1.0+json" -H "Content-Type: application/json" -d "{\"uid\": \"$1\$$1\", \"display_name\": \"$2\"}"
+
+echo
+
+curl -k -b Ceph_Cookies -X PUT $url/api/rgw/user/$1\$$1/quota -H "Accept: application/vnd.ceph.api.v1.0+json" -H "Content-Type: application/json" -d "{\"quota_type\": \"user\", \"enabled\": \"true\", \"max_size_kb\": $3, \"max_objects\": \"0\"}"
+
+echo
