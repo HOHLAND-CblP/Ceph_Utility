@@ -1,6 +1,0 @@
-#!/bin/bash
-#Ceph authentication
-echo $3 > curipaddress
-curl -k -c Ceph_Cookies -X POST "$3/api/auth" -H "Accept: application/vnd.ceph.api.v1.0+json" -H "Content-Type: application/json" -d "{\"username\": \"$1\", \"password\": \"$2\"}"
-
-echo
